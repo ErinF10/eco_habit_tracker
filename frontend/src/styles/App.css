@@ -10,9 +10,16 @@ a {
   color: black;
 }
 
+.landing-page .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .landing-page nav {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .landing-page .header-list {
@@ -48,4 +55,33 @@ a {
   padding: 10px;
 }
 
+.dashboard {
+  display: flex;
+
+}
+
+.main-content {
+  margin-left: 270px; 
+  margin-top: 60px;
+}
+
+.header-container {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 290px;
+  border-bottom: .5px solid #8b8b8b;
+  border-left: 50px solid #e8ffec;
+  border-right: 50px solid #e8ffec;
+  padding: 10px -40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensure the header takes full width of its container */
+  height: 60px; /* Set a fixed height for the header */
+}
 

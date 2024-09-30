@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/common/navbar";
+import Header from "../components/common/header";
 
 const dashboard = () => {
     return (
@@ -7,7 +8,13 @@ const dashboard = () => {
             <div className="navbar-container">
                 <Navbar />
             </div>
-            <p>test</p>
+            <div className="main-content">
+                <div className="header-container">
+                    <Header page='Dashboard' />
+                </div>
+                <p>content</p>
+            </div>
+            
         </div>
     )
 }
