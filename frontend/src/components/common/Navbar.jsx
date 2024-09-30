@@ -1,11 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+    const navItems = [
+        { name: 'Profile', path: '/profile' },
+        { name: 'Manage Habits', path: '/manage-habits' },
+        { name: 'Progress', path: '/progress' },
+        { name: 'Settings', path: '/progress'},
+    ]
     return (
-        <div className="navbar-container">
-            <div className="navbar">
-                <h1>Test</h1>
-            </div>
+        <div className="navbar">
+            <h2>Eco Habit Tracker</h2>
+            <ul className="nav-items">
+                {navItems.map((item, index) => (
+                    <li key={index} className="nav-item">
+                        <Link to={item.path}>{item.name}</Link>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }

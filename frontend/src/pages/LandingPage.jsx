@@ -21,7 +21,7 @@ const LandingPage = () => {
                     <div className="auth-links">
                         <Link to="/signin" className="auth-link">Sign In</Link>
                         <span className="separator">|</span>
-                        <Link to="/create-account" className="auth-link">Create Account</Link>
+                        <Link to="/signin" className="auth-link">Create Account</Link>
                     </div>
                 </nav>
             </header>

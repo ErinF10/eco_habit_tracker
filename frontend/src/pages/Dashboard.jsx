@@ -1,8 +1,12 @@
 import React from "react";
+import Navbar from "../components/common/navbar";
 
 const dashboard = () => {
     return (
-        <div>
+        <div className="dashboard">
+            <div className="navbar-container">
+                <Navbar />
+            </div>
             <p>test</p>
         </div>
     )

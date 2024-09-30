@@ -25,11 +25,27 @@ a {
 .landing-page .header-item:not(:last-child)::after {
   content: '|';
   margin: 0 5px;
-  /* color: #6e6e6e;  */
+  color: #6e6e6e; 
 }
 
 .landing-page .separator {
   padding: 0 5px;
+  color: #6e6e6e; 
+}
+
+.navbar-container {
+  background-color: #a9f0b5;
+  width: 250px; /* Adjust the width of the navbar as needed */
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto; /* In case the navbar content is long */
+  padding: 20px;
+}
+
+.nav-item {
+  padding: 10px;
 }
 
 
