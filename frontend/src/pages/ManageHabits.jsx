@@ -1,18 +1,32 @@
 import React from "react";
 import Navbar from "../components/common/navbar";
 import Header from "../components/common/header";
+import Habit from "../components/manage_habits/Habit";
 
 const ManageHabits = () => {
     return (
-        <div>
+        <div className="manage-habits">
             <div className="navbar-container">
                 <Navbar />
             </div>
+            <div className="header-container">
+                <Header page='Manage Habits' />
+            </div>
+
             <div className="main-content">
-                <div className="header-container">
-                    <Header page='Manage Habits' />
+                <div className="add-habit-container">
+                    <h1>Add a New Habit</h1>
+                    <div className="add-habit">
+                        <p>Enter a new habit</p>
+                        <button>+ Add</button>
+                    </div>
                 </div>
-                <p>content</p>
+                <div className="current-habits">
+                    <h1>Current Habits</h1>
+                    <Habit title='Take the subway'/>
+                    <Habit title='Bring reusable bags to the store' />
+                    <Habit title='Take a 15 minute shorter shower' />
+                </div>
             </div>
         </div>
     )

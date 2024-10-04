@@ -165,6 +165,37 @@ a {
   margin: -25px 0 -25px 0;
 }
 
+/* manage-habit */
+.manage-habits .add-habit-container {
+  background-color: white;
+  padding: 10px 30px 30px 30px;
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+.manage-habits .add-habit {
+  display: flex;
+  justify-content: space-between;
+}
+
+.manage-habits .add-habit p {
+  border-style: solid;
+  width: 90%;
+}
+
+.manage-habits .current-habits {
+  background-color: white;
+  margin: 5px;
+  padding: 10px 30px 30px 30px;
+
+}
+
+.manage-habits .habit-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
 
 /* Buttons */
 button.edit {
