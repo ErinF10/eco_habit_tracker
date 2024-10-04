@@ -9,7 +9,7 @@ const LandingPage = () => {
       ];
     return (
         <div className="landing-page">
-            <header className="header">
+            <header className="landing-header">
                 <nav>
                     <ul className="header-list">
                         {headerItems.map((item, index) => (
