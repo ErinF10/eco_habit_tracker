@@ -34,7 +34,8 @@ const Profile = () => {
                             </div>
 
                             <div className="profile-info-container">
-                                <ProfileInfo field='name' contents='Erin Forrest'/>
+                                <ProfileInfo field='Username' contents='ErinForrest10' />
+                                <ProfileInfo field='Name' contents='Erin Forrest'/>
                                 <ProfileInfo field='Pronouns' contents='She/Her'/>
                                 <ProfileInfo field='Location' contents='None'/>
                                 <ProfileInfo field='Job Title' contents='None' />

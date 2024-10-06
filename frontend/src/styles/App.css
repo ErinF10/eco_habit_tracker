@@ -125,7 +125,7 @@ a {
   font-size: x-large;
 }
 
-/* Profile page styling */
+/* Profile page/Settings page styling */
 .profile .profile-information-container {
   background-color: white;
   width: 100%;
@@ -134,25 +134,29 @@ a {
 
 }
 
-.profile .profile-settings {
+.profile-settings {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.profile .profile-picture-settings {
+.settings .profile-settings {
+  background-color: white;
+}
+
+.profile-picture-settings {
   display: flex;
   flex-direction: column;
 }
 
-.profile .profile-info-settings {
+.profile-info-settings {
   display: flex;
   flex-direction: column;
   margin: 5px;
   width: 100%;
 }
 
-.profile  .top {
+.top {
   display: flex;
   justify-content: space-between;
 }
@@ -163,6 +167,8 @@ a {
 
 .profile-info {
   display: flex;
+  align-items: center;
+  gap: 5px;
   margin: -25px 0 -25px 0;
 }
 
