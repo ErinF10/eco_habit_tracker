@@ -1,23 +1,10 @@
 from fastapi import FastAPI , HTTPException, Depends, status
-from pydantic import BaseModel
-from typing import Annotated
-import models
-from database import engine, SessionLocal
-from sqlalchemy.orm import Session
 from models import User, Habit, UserHabit
 from datetime import date, datetime
+from database.session import db_dependency
+
 
 app = FastAPI()
-models.Base.metadata.create_all(bind=engine)
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-db_dependency = Annotated[Session, Depends(get_db)]
 
 test_users = [
     User(
