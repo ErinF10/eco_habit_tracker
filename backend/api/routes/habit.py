@@ -1,42 +1,28 @@
-from fastapi import FastAPI , HTTPException, Depends, status
-from backend.api.routes.user import test_users, test_user_habits
+from fastapi import HTTPException, status, APIRouter
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
+from database.session import db_dependency
+
 from api.schemas.habit_schema import Habit
+from api.services.get_user_habits import get_user_habits_for_user
 
-app = FastAPI()
+router = APIRouter(tags=['habits'])
 
+@router.post("/habits/{user_id}/{habit_id}", status_code=status.HTTP_201_CREATED)
+async def create_habit(user_id: int, habit_id: int, )
 
-test_habits = [
-    Habit(
-        id=1,
-        description='Take the Subway'
-    )
-]
+# @router.get("/habits/{user_id}")
+# async def fetch_user_habits(user_id: int):
+#     """
+#     Args:
+#         user_id: passed in through the get URL
 
-@app.get("/habits/{user_id}")
-async def fetch_user_habits(user_id: int):
-    """
-    Args:
-        user_id: passed in through the get URL
-
-    Raises:
-        404 User not found: if the user_id in the get URL does not exist
-        404 No habits found for this user: if there are no habits that match the given user_id
+#     Raises:
+#         404 User not found: if the user_id in the get URL does not exist
+#         404 No habits found for this user: if there are no habits that match the given user_id
         
-    Returns:
-        A list of all the habits for a specific user_id
-    """
-    # First, check if the user exists
-    user = next((user for user in test_users if user.id == user_id), None)
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
+#     Returns:
+#         A list of all the habits for a specific user_id
+#     """
+#     return get_user_habits_for_user(user_id, test_habits, test_users, test_user_habits)
+@router.get("/habits/{user_id}", status_code=status.HTTP_200_OK)
 
-    # Find all UserHabit entries for this user
-    user_habits = [user_habit for user_habit in test_user_habits if user_habit.user_id == user_id]
-    
-    if not user_habits:
-        raise HTTPException(status_code=404, detail="No habits found for this user")
-
-    # Get the actual Habit objects
-    habits = [(habit for habit in test_habits if habit.id == user_habit.habit_id) for user_habit in user_habits]
-
-    return habits

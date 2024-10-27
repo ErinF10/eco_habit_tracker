@@ -8,6 +8,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String(50), unique=True, nullable=False)
     email = Column(String(100))
-    password_hash = Column(Integer, nullable=False)
+    password_hash = Column(String(20), nullable=False)
     date_created = Column(Date)
     last_login = Column(DateTime)
+
