@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../components/common/navbar";
 import Header from "../components/common/header";
 import CompletionIcon from "../components/dashboard/CompletionIcon";
+import '../styles/dashboard.css'
+
 
 const Dashboard = () => {
     return (

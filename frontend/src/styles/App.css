@@ -9,32 +9,6 @@ a {
   color: black;
 }
 
-
-/* Landing page styling */
-.landing-page nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.landing-page .header-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-
-.landing-page .header-item:not(:last-child)::after {
-  content: '|';
-  margin: 0 5px;
-  color: #6e6e6e; 
-}
-
-.landing-page .separator {
-  padding: 0 5px;
-  color: #6e6e6e; 
-}
-
 /* Navbar styling */
 .navbar-container {
   background-color: #a9f0b5;
@@ -78,22 +52,6 @@ a {
   padding-top: 30px;
 }
 
-/* Dashboard */
-.dashboard .top-row {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  margin-bottom: 20px;
-  gap: 10%;
-}
-
-.dashboard .todo-list {
-  background-color: white;
-  border-radius: 10px;
-  width: 70%;
-  padding: 15px;
-}
-
 /* analytics styling for dashboard and progress page */
 .analytics {
   background-color: white;
@@ -125,85 +83,6 @@ a {
   font-size: x-large;
 }
 
-/* Profile page/Settings page styling */
-.profile .profile-information-container {
-  background-color: white;
-  width: 100%;
-  height: 100%;
-  padding: 40px;
-
-}
-
-.profile-settings {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.settings .profile-settings {
-  background-color: white;
-}
-
-.profile-picture-settings {
-  display: flex;
-  flex-direction: column;
-}
-
-.profile-info-settings {
-  display: flex;
-  flex-direction: column;
-  margin: 5px;
-  width: 100%;
-}
-
-.top {
-  display: flex;
-  justify-content: space-between;
-}
-
-
-
-/* Profile Info Styling */
-
-.profile-info {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: -25px 0 -25px 0;
-}
-
-/* manage-habit */
-.manage-habits .add-habit-container {
-  background-color: white;
-  padding: 10px 30px 30px 30px;
-  margin: 5px;
-  margin-bottom: 10px;
-}
-
-.manage-habits .add-habit {
-  display: flex;
-  justify-content: space-between;
-}
-
-.manage-habits .add-habit p {
-  border-style: solid;
-  width: 90%;
-}
-
-.manage-habits .current-habits {
-  background-color: white;
-  margin: 5px;
-  padding: 10px 30px 30px 30px;
-
-}
-
-/*Styling for Habit.jsx */
-.manage-habits .habit-name {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-}
 
 /* Buttons */
 button.edit {

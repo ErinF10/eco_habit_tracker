@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/common/navbar";
 import Header from "../components/common/header";
 import ProfileInfo from "../components/profile/ProfileInfo";
+import '../styles/profile.css'
 
 const Profile = () => {
     return (

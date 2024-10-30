@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/common/navbar";
 import Header from "../components/common/header";
 import ProfileInfo from "../components/profile/ProfileInfo";
+import '../styles/settings.css';
 
 const Settings = () => {
     return (
@@ -20,7 +21,6 @@ const Settings = () => {
                 </div>
 
                 <div className="profile-info-settings">
-
                     <div className="top">
                         <h2>Profile</h2>
                         <button className="edit">Edit</button>
@@ -29,8 +29,8 @@ const Settings = () => {
                     <div className="profile-info-container">
                         <ProfileInfo field='Username' contents='ErinForrest10' />
                         <ProfileInfo field='Name' contents='Erin Forrest'/>
-                        
                     </div>
+
                 </div>
                 <button className="delete">Delete Profile</button>
             </div>

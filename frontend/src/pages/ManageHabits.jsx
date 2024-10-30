@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/common/navbar";
 import Header from "../components/common/header";
 import Habit from "../components/manage_habits/Habit";
+import '../styles/manageHabits.css';
 
 const ManageHabits = () => {
     return (
@@ -17,7 +18,7 @@ const ManageHabits = () => {
                 <div className="add-habit-container">
                     <h1>Add a New Habit</h1>
                     <div className="add-habit">
-                        <p>Enter a new habit</p>
+                        <input placeholder="Enter a new habit"></input>
                         <button>+ Add</button>
                     </div>
                 </div>

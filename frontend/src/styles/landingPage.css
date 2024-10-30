@@ -1,0 +1,24 @@
+/* Landing page styling */
+.landing-page nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .landing-page .header-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .landing-page .header-item:not(:last-child)::after {
+    content: '|';
+    margin: 0 5px;
+    color: #6e6e6e; 
+  }
+  
+  .landing-page .separator {
+    padding: 0 5px;
+    color: #6e6e6e; 
+  }
