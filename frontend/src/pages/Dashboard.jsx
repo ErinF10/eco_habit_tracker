@@ -3,6 +3,7 @@ import Navbar from "../components/common/navbar";
 import Header from "../components/common/header";
 import CompletionIcon from "../components/dashboard/CompletionIcon";
 import '../styles/dashboard.css'
+import { Link } from "react-router-dom";
 
 
 const Dashboard = () => {
@@ -21,7 +22,9 @@ const Dashboard = () => {
                         <h1>Today's Todo's</h1>
                     </div>
                     <div className="button-container">
-                        <button id='take-survey'>Take the Survey</button>
+                        <Link to='/routine-survey'>
+                            <button id='take-survey'>Take the Survey</button>
+                        </Link>
                     </div>
                 </div>
                 
@@ -37,6 +40,7 @@ const Dashboard = () => {
                             <h1>2/10 Habits Complete</h1>
                             <p>Last Week: 9/10 Habits Complete</p>
                         </div>
+                        <p></p>
                     </div>
                     
                     <div className="progress-chart">

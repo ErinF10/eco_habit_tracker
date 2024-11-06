@@ -2,8 +2,8 @@ import React from "react";
 
 const RoutineSurvey = () => {
     return (
-        <div>
-            Routine Survey
+        <div className="routine-survey">
+            test
         </div>
     )
 }
