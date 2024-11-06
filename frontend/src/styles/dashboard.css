@@ -1,0 +1,15 @@
+/* Dashboard */
+.dashboard .top-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10%;
+  }
+  
+  .dashboard .todo-list {
+    background-color: white;
+    border-radius: 10px;
+    width: 70%;
+    padding: 15px;
+  }
