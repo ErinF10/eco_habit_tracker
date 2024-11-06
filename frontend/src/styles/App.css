@@ -1,0 +1,102 @@
+body {
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #e8ffec;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Navbar styling */
+.navbar-container {
+  background-color: #a9f0b5;
+  width: 250px; 
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto; /* In case the navbar content is long */
+  padding: 20px;
+}
+
+.nav-item {
+  padding: 10px;
+}
+
+/* Content for all app pages common styling */
+.main-content {
+  margin-left: 280px; 
+  margin-top: 80px;
+}
+
+/* Header styling */
+.header-container {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 290px;
+  border-bottom: .5px solid #8b8b8b;
+  border-left: 50px solid #e8ffec;
+  border-right: 50px solid #e8ffec;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+  height: 60px; 
+  padding-top: 30px;
+}
+
+/* analytics styling for dashboard and progress page */
+.analytics {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.analytics .streaks-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.completion-icons {
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+}
+
+.completion-icon {
+  /*Background color styling directly in CompletionIcon.jsx */
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+}
+
+
+/* Buttons */
+button.edit {
+  background-color: transparent;
+  border-style: none;
+  color: green;
+}
+
+button.add {
+  background-color: transparent;
+  border-style: none;
+  color: green;
+}
+
+
+
+
