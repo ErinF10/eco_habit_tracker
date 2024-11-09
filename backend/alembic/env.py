@@ -1,14 +1,20 @@
 import os, sys
 from dotenv import load_dotenv
-
 from logging.config import fileConfig
-
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-
 from database.base import Base
-
 from alembic import context
+from api.models.users import User
+from api.models.user_streaks import UserStreak
+from api.models.habits import Habit
+from api.models.habit_suggestions import HabitSuggestion
+from api.models.questions import Question
+from api.models.answers import Answer
+from api.models.user_answers import UserAnswer
+from api.models.user_habits import UserHabit
+from api.models.user_habit_schedule import UserHabitSchedule
+from api.models.user_habit_progress import UserHabitProgress
 
 # Add the directory containing 'models.py' to the Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
