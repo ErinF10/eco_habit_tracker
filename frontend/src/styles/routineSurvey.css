@@ -1,0 +1,42 @@
+.routine-survey {
+    display: flex;
+    justify-content: center;
+}
+
+.routine-survey-form {
+    background-color: white;
+    padding-inline: 40px;
+    padding-block: 20px;
+    width: 60%;
+    border-radius: 5px;
+    border: solid .8px rgb(184, 184, 184);
+}
+
+.survey-header-container {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    color: green;
+}
+
+.button-container {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.submit {
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+    border-style: none;
+    width: 80%;
+    height: 40px;
+    transition: background-color 100ms ease-in-out;
+}
+
+.submit:hover {
+    background-color: rgb(26, 172, 26);
+}

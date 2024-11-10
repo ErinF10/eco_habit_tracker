@@ -18,7 +18,6 @@ async def get_user_by_id(user_id: int, db: db_dependency):
             404: User not found
         Returns:
             user: Details for the specified user
-
     """
     user = db.query(UserModel).filter(UserModel.id == user_id).first()
     if user is None:
