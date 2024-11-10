@@ -8,9 +8,6 @@ __pycache__/
 # Environment variables
 .env
 
-# Alembic migration files 
-alembic/versions/
-
 # IDE-specific files 
 .vscode/
 .idea/
