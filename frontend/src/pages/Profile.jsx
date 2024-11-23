@@ -15,7 +15,6 @@ const Profile = () => {
             </div>
 
             <div className="main-content">
-                
                 <div className="profile-information-container">
 
                     <h2>Personal Information</h2>
