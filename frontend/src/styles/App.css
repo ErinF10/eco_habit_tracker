@@ -4,8 +4,10 @@ body {
   background-color: #e8ffec;
 }
 
-a {
-  text-decoration: none;
+/* Content for all app pages common styling */
+.main-content {
+  margin-left: 280px; 
+  margin-top: 80px;
   color: black;
 }
 
@@ -26,11 +28,7 @@ a {
   list-style-type: none;
 }
 
-/* Content for all app pages common styling */
-.main-content {
-  margin-left: 280px; 
-  margin-top: 80px;
-}
+
 
 /* Header styling */
 .header-container {
@@ -54,6 +52,11 @@ a {
   height: 50px; 
   padding-top: 20px;
   color: black;
+}
+
+.user-container {
+  display: flex;
+  gap: 10px;
 }
 
 /* analytics styling for dashboard and progress page */

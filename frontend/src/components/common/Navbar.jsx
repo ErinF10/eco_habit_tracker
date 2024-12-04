@@ -7,7 +7,7 @@ const Navbar = () => {
         { name: 'Profile', path: '/profile' },
         { name: 'Manage Habits', path: '/manage-habits' },
         { name: 'Progress', path: '/progress' },
-        { name: 'Settings', path: '/settings'},
+        // { name: 'Settings', path: '/settings'},
         { name: 'Eco Board', path: '/eco-board'}
     ]
     return (

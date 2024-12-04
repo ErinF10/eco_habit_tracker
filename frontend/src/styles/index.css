@@ -9,3 +9,28 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  font-weight: 500;
+  color: #000000;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #de720e;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid rgb(255, 201, 148);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  background-color: rgb(255, 252, 246);
+  transition: border-color 0.25s;
+  color: black;
+}
+button:hover {
+  border-color: #ff9500;
+}
+
