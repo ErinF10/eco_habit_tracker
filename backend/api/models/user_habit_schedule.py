@@ -5,7 +5,7 @@ class UserHabitSchedule(Base):
     __tablename__ = 'user_habit_schedules'
 
     id = Column(Integer, primary_key=True)
-    user_habit_id = Column(Integer, ForeignKey('user_habits.id'))
+    user_habit_id = Column(Integer, ForeignKey('user_habits.id', ondelete='CASCADE'))
     monday = Column(Boolean)
     tuesday = Column(Boolean)
     wednesday = Column(Boolean)
