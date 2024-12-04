@@ -36,6 +36,7 @@ async def register_user(user: UserCreate, db: db_dependency):
         dict: id, username, and email of new user.
     """
     new_user = UserModel(
+        id=user.id,
         username=user.username,
         email=user.email,
         password_hash=user.password,

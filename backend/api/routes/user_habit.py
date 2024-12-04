@@ -11,7 +11,7 @@ from datetime import date
 router = APIRouter(tags=['userhabits'])
 
 @router.post("/userhabits/{user_id}/{habit_id}", status_code=status.HTTP_201_CREATED)
-async def create_user_habit(user_id: int, habit_id: int, db: db_dependency):
+async def create_user_habit(user_id: str, habit_id: int, db: db_dependency):
     """
         Args:
             user_id (int): ID for the user the habit will correspond to.
@@ -38,7 +38,7 @@ async def create_user_habit(user_id: int, habit_id: int, db: db_dependency):
 
 
 @router.get("/userhabits/{user_id}", status_code=status.HTTP_200_OK)
-async def get_user_habits(user_id: int, db: db_dependency):
+async def get_user_habits(user_id: str, db: db_dependency):
     """
         Args:
             user_id: passed in through the get URL
