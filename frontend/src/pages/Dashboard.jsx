@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../components/common/navbar";
-import Header from "../components/common/header";
+import Navbar from "../components/common/Navbar";
+import Header from "../components/common/Header";
 import CompletionIcon from "../components/dashboard/CompletionIcon";
 import '../styles/dashboard.css'
 import { Link } from "react-router-dom";

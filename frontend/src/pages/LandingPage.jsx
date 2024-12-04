@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; 
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import '../styles/landingPage.css'
 
 const LandingPage = () => {
@@ -19,10 +20,17 @@ const LandingPage = () => {
                             </li>
                         ))}
                     </ul>
-                    <div className="auth-links">
-                        <Link to="/signin" className="auth-link">Sign In</Link>
+                    <div className="auth-links">                   
+                        <button>
+                            <Link to="/dashboard" className="auth-link">Get Started!</Link>
+                        </button>
                         <span className="separator">|</span>
-                        <Link to="/signin" className="auth-link">Create Account</Link>
+                        <SignedOut>
+                            <SignInButton />
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton />        
+                        </SignedIn> 
                     </div>
                 </nav>
             </header>
