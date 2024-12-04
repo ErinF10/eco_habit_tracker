@@ -8,6 +8,7 @@ const Navbar = () => {
         { name: 'Manage Habits', path: '/manage-habits' },
         { name: 'Progress', path: '/progress' },
         { name: 'Settings', path: '/settings'},
+        { name: 'Eco Board', path: '/eco-board'}
     ]
     return (
         <div className="navbar">

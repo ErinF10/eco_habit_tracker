@@ -12,6 +12,7 @@ import Settings from './pages/Settings';
 import Progress from './pages/Progress';
 import SignIn from './pages/SignIn';
 import RoutineSurvey from './pages/RoutineSurvey';
+import EcoBoard from './pages/EcoBoard';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/progress' element={<Progress />} />
           <Route path='/signin' element={<SignIn />} />
           <Route path='/routine-survey' element={<RoutineSurvey />} />
+          <Route path='/eco-board' element={<EcoBoard />} />
         </Routes>
       </div>
     </Router>
