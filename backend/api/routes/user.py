@@ -10,7 +10,7 @@ from datetime import date, datetime
 router = APIRouter(tags=['users'])
 
 @router.get("/users/{user_id}", status_code=status.HTTP_200_OK)
-async def get_user_by_id(user_id: int, db: db_dependency):
+async def get_user_by_id(user_id: str, db: db_dependency):
     """
         Args:
             user_id: User ID wanted to be returned
@@ -29,7 +29,7 @@ async def get_user_by_id(user_id: int, db: db_dependency):
 async def register_user(user: UserCreate, db: db_dependency):
     """
     Args:
-        user: Username, email, and password for the new user.
+        user: Username, email for the new user.
     Raises:
         400: Error Creating User
     Returns:
@@ -37,8 +37,9 @@ async def register_user(user: UserCreate, db: db_dependency):
     """
     new_user = UserModel(
         username=user.username,
+        clerk_id=user.clerk_id,
         email=user.email,
-        password_hash=user.password,
+        # password_hash=user.password,
         date_created=date.today(),
         last_login=datetime.now()
     )
@@ -54,7 +55,7 @@ async def register_user(user: UserCreate, db: db_dependency):
 
 
 @router.delete("/users/{user_id}", status_code=status.HTTP_200_OK)
-async def delete_user(user_id: int, db: db_dependency):
+async def delete_user(user_id: str, db: db_dependency):
     """
         Args:
             user_id: User ID for user wanted to be deleted
@@ -78,7 +79,7 @@ async def delete_user(user_id: int, db: db_dependency):
 
 
 @router.put("/users/{user_id}", status_code=status.HTTP_200_OK)
-async def update_username(user_id: int, username_update: UsernameUpdateRequest, db: db_dependency):
+async def update_username(user_id: str, username_update: UsernameUpdateRequest, db: db_dependency):
     """
         Args:
             user_id (int): ID of the user to be updated
@@ -109,7 +110,7 @@ async def update_username(user_id: int, username_update: UsernameUpdateRequest, 
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
     
 @router.put("/users/{user_id}/email")
-async def update_email(user_id: int, email_update: UserEmailUpdateRequest, db: db_dependency):
+async def update_email(user_id: str, email_update: UserEmailUpdateRequest, db: db_dependency):
     """
         Args:
             user_id (int): ID of the user to be updated
