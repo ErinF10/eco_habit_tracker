@@ -24,34 +24,73 @@ async def get_user_by_id(user_id: str, db: db_dependency):
         raise HTTPException(status_code=404, detail="User not found")
     return user
 
+@router.post("/users/sync-user", status_code=status.HTTP_200_OK)
+async def sync_user(user: UserCreate, db: db_dependency):
+    """
+    Synchronize or create a user based on Clerk ID.
 
-@router.post("/users", status_code=status.HTTP_201_CREATED)
-async def register_user(user: UserCreate, db: db_dependency):
-    """
     Args:
-        user: Username, email for the new user.
+        user: Username, clerk id, and email for the user.
     Raises:
-        400: Error Creating User
+        400: Error Creating/Updating User
     Returns:
-        dict: id, username, and email of new user.
+        dict: id, username, and email of the user.
     """
-    new_user = UserModel(
-        username=user.username,
-        clerk_id=user.clerk_id,
-        email=user.email,
-        # password_hash=user.password,
-        date_created=date.today(),
-        last_login=datetime.now()
-    )
     try:
-        db.add(new_user)
-        db.commit()
-        db.refresh(new_user)
-    except IntegrityError:
+        existing_user = db.query(UserModel).filter(UserModel.clerk_id == user.clerk_id).first()
+        
+        if existing_user is None:
+            new_user = UserModel(
+                username=user.username,
+                clerk_id=user.clerk_id,
+                email=user.email,
+                date_created=date.today(),
+                last_login=datetime.now()
+            )
+            db.add(new_user)
+            db.commit()
+            db.refresh(new_user)
+            return new_user
+        else:
+            # Update existing user if needed
+            existing_user.username = user.username
+            existing_user.email = user.email
+            existing_user.last_login = datetime.now()
+            db.commit()
+            db.refresh(existing_user)
+            return existing_user
+
+    except SQLAlchemyError as e:
         db.rollback()
-        raise HTTPException(status_code=400, detail="Error creating user")
+        raise HTTPException(status_code=400, detail=f"Error syncing user: {str(e)}")
+
+# @router.post("/users", status_code=status.HTTP_201_CREATED)
+# async def register_user(user: UserCreate, db: db_dependency):
+#     """
+#     Args:
+#         user: Username, email for the new user.
+#     Raises:
+#         400: Error Creating User
+#     Returns:
+#         dict: id, username, and email of new user.
+#     """
+#     new_user = UserModel(
+#         username=user.username,
+#         clerk_id=user.clerk_id,
+#         email=user.email,
+#         # password_hash=user.password,
+#         date_created=date.today(),
+#         last_login=datetime.now()
+#     )
+#     try:
+#         db.add(new_user)
+#         db.commit()
+#         db.refresh(new_user)
+#     except IntegrityError:
+#         db.rollback()
+#         raise HTTPException(status_code=400, detail="Error creating user")
     
-    return {"id": new_user.id, "username": new_user.username, "email": new_user.email}
+#     return {"id": new_user.id, "username": new_user.username, "email": new_user.email}
 
 
 @router.delete("/users/{user_id}", status_code=status.HTTP_200_OK)
