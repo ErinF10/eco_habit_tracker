@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; 
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import { SignInButton, SignUpButton, SignUp, SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 import '../styles/landingPage.css'
 
 const LandingPage = () => {
@@ -25,9 +25,9 @@ const LandingPage = () => {
                             <Link to="/dashboard" className="auth-link">Get Started!</Link>
                         </button>
                         <span className="separator">|</span>
-                        <SignedOut>
-                            <SignInButton />
-                        </SignedOut>
+                        <SignInButton />
+                        <span className="separator">|</span>
+                        <SignUpButton />
                         <SignedIn>
                             <UserButton />        
                         </SignedIn> 
