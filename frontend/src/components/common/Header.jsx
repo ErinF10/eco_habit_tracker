@@ -3,7 +3,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/c
 
 const Header = (props) => {
     const { user } = useUser()
-
+   
     return (
         <div className="header">
             <h2>{props.page}</h2>

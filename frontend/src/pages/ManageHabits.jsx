@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../components/common/navbar";
-import Header from "../components/common/header";
+import Navbar from "../components/common/Navbar";
+import Header from "../components/common/Header";
 import Habit from "../components/manage_habits/Habit";
 import '../styles/manageHabits.css';
 
