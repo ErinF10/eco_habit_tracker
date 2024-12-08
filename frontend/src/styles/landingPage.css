@@ -1,4 +1,4 @@
-/* Landing page styling */
+ /* Landing page styling */
 .landing-page nav {
     display: flex;
     justify-content: space-between;
@@ -32,7 +32,141 @@
   color: black;
 }
 
-.landing-page button {
-  padding-inline: 10px;
-  font-size: .8em;
+.landing-page {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+header {
+  padding: 1rem;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.heading {
+  background-image: url('../images/lake.png');
+  
+  /* padding: 0px 50px 150px 50px; */
+  background-position: center;
+}
+
+.hero {
+  /* padding: 4rem 2rem; */
+  padding: 250px 200px 250px 200px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+  height: 250px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: white;
+  font-family: 'Inria Serif', 'Times New Roman', Garamond, serif;
+}
+
+.start-btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: larger;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.main {
+  background-color: #f8fff3;
+}
+
+.landing-page .features {
+  display: flex;
+  /* justify-content: space-around; */
+  /* padding: 2rem; */
+  /* gap: 5px; */
+  background-color: #99bc76;
+  padding: 20px;
+}
+
+.feature {
+  /* flex-basis: 30%; */
+  text-align: center;
+  background-color: #f8fff3;
+  border-radius: 5px;
+  padding: 0px 20px 30px 20px;
+}
+
+
+.feature-gap {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  width: 20%;
+}
+
+.info,
+.suggestions,
+.milestones {
+  display: flex;
+}
+
+.info,
+.suggestions {
+  border-bottom: solid 1px lightgray;
+}
+
+.info-text h2,
+.suggestions-text h2,
+.milestones-text h2 {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Inria Serif', 'Times New Roman', Garamond, serif;
+  padding: 50px 75px 0px 75px;
+}
+
+.info-text p,
+.suggestions-text p,
+.milestones-text p {
+  margin: 0 auto;
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Inria Serif', 'Times New Roman', Garamond, serif;
+  padding: 50px 75px 0px 75px;
+}
+
+.info-image,
+.suggestions-image,
+.milestones-image {
+  width: auto;
+  height: auto;
+  max-width: 450px;
+  max-height: 450px;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
 }

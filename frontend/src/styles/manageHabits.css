@@ -30,3 +30,8 @@
     align-items: center;
     
   }
+
+  .days-of-week-selector button.selected {
+    background-color: #ffa12d;
+    color: white;
+}
