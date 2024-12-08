@@ -7,83 +7,48 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
 import api from "../api";
+import { useCurrentUser } from "../UserContext";
 
 
 const Dashboard = () => {
-    const { isLoaded, isSignedIn, user } = useUser();
     const [habits, setHabits] = useState([]);
-    const [currentUser, setCurrentUser] = useState({});
     const [streak, setStreak] = useState(0);
     const [bestStreak, setBestStreak] = useState(0);
     const [completedHabits, setCompletedHabits] = useState({});
 
+    const { currentUser } = useCurrentUser();
+
+
     useEffect(() => {
-        const syncUser = async () => {
-            if (isLoaded && isSignedIn && user) {
+        const fetchUserData = async () => {
+            if (currentUser) {
                 try {
-                const response = await api.post('/users/sync-user', {
-                    clerk_id: user.id,
-                    username: user.username,
-                    email: user.primaryEmailAddress?.emailAddress ?? null,
-                });
-                console.log('User synced:', response.data);
-                } catch (error) {
-                    console.error('Error syncing user:', error.response ? error.response.data : error);
-                }
-                 
-            } 
-        };
-        const fetchUserAndInitializeStreaks = async () => {
-            if (isLoaded && isSignedIn && user) {
-                try {
-                    const userResponse = await api.get(`/users/${user.id}`);
-                    const userData = userResponse.data;
-                    setCurrentUser(userData);
+                    const userStreak = await api.get(`/userstreaks/${currentUser.id}`);
+               
         
-                    const streakResponse = await api.post(`/userstreaks/${userData.id}`);
-                    const userStreak = await api.get(`/userstreaks/${userData.id}`);
+                    if (currentUser && currentUser.id) {
+                        const response = await api.get(`/userhabits/${currentUser.id}`);
+                        console.log('Habits Response:', response.data);
+                        
+                        if (response.data && Array.isArray(response.data)) {
+                            setHabits(response.data);
+                        } else {
+                            console.error("Unexpected response format:", response.data);
+                        }
+                    } else {
+                        console.warn('No valid user ID to fetch habits');
+                    }
                     
                     setStreak(userStreak.data.current_streak);
                     setBestStreak(userStreak.data.best_streak);
                 } catch (error) {
-                    console.error("Error fetching user data or initializing streaks:", error);
+                    console.error("Error fetching user data:", error);
+                    console.error("Error Details:", error.response?.data);
                 }
             }
         };
-    
-        syncUser();
-        fetchUserAndInitializeStreaks();
-        // initializeStreaks();
-    }, [isLoaded, isSignedIn, user]);
-    
-    useEffect(() => {
-        const fetchUserHabits = async () => {
-            try {
-                console.log('Fetching user habits...');
-                console.log('Current User State:', currentUser);
-                console.log('Current User ID:', currentUser.id);
-    
-                if (currentUser && currentUser.id) {
-                    const response = await api.get(`/userhabits/${currentUser.id}`);
-                    console.log('Habits Response:', response.data);
-                    
-                    if (response.data && Array.isArray(response.data)) {
-                        setHabits(response.data);
-                    } else {
-                        console.error("Unexpected response format:", response.data);
-                    }
-                } else {
-                    console.warn('No valid user ID to fetch habits');
-                }
-            } catch (error) {
-                console.error("Error fetching habits", error);
-                console.error("Error Details:", error.response?.data);
-            }
-        };
-    
-        fetchUserHabits();
-    }, [currentUser.id]);
-
+        fetchUserData();
+    }, [currentUser]);
 
     const handleHabitToggle = (habitId) => {
         setCompletedHabits(prev => ({

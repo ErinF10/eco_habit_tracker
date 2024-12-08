@@ -5,14 +5,14 @@
 
 body {
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0rem;
   background-color: #e8ffec;
 }
 
 /* Content for all app pages common styling */
 .main-content {
-  margin-left: 280px; 
-  margin-top: 80px;
+  margin-left: 320px; 
+  margin-top: 100px;
   color: black;
 }
 
@@ -46,7 +46,7 @@ body {
   border-bottom: .5px solid #c3c3c3;
   padding-inline: 50px;
   margin-inline: 20px;
-  backdrop-filter: blur(20px);
+  background-color: #e8ffec;
 }
 
 .header {
