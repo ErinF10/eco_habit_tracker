@@ -9,17 +9,17 @@ from datetime import date, datetime
 
 router = APIRouter(tags=['users'])
 
-@router.get("/users/{user_id}", status_code=status.HTTP_200_OK)
-async def get_user_by_id(user_id: str, db: db_dependency):
+@router.get("/users/{clerk_id}", status_code=status.HTTP_200_OK)
+async def get_user_by_clerk_id(clerk_id: str, db: db_dependency):
     """
         Args:
-            user_id: User ID wanted to be returned
+            clerk_id: clerk ID associated with User ID wanted to be returned
         Raises:
             404: User not found
         Returns:
             user: Details for the specified user
     """
-    user = db.query(UserModel).filter(UserModel.id == user_id).first()
+    user = db.query(UserModel).filter(UserModel.clerk_id == clerk_id).first()
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return user
@@ -62,8 +62,8 @@ async def sync_user(user: UserCreate, db: db_dependency):
 
     except SQLAlchemyError as e:
         db.rollback()
+        # print(f"Database error: {str(e)}")  # For server-side logging
         raise HTTPException(status_code=400, detail=f"Error syncing user: {str(e)}")
-
 # @router.post("/users", status_code=status.HTTP_201_CREATED)
 # async def register_user(user: UserCreate, db: db_dependency):
 #     """
@@ -111,7 +111,7 @@ async def delete_user(user_id: str, db: db_dependency):
         db.delete(user)
         db.commit()
     except SQLAlchemyError:
-        db.rollback
+        db.rollback()
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="An error occured while deleting the user")
     
     return {"message": "User successfully deleted"}

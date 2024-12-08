@@ -3,7 +3,7 @@ from typing import Optional
 from datetime import date, datetime
 
 class User(BaseModel):
-    id: str
+    id: int
     clerk_id: str
     username: str
     email: Optional[str] = None
@@ -12,6 +12,7 @@ class User(BaseModel):
     last_login: datetime
 
 class UserCreate(BaseModel):
+    clerk_id: str
     username: str
     email: Optional[str] = None
     # password: Optional[str] = 'test'
