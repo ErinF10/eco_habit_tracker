@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     const navItems = [
         {name: 'Dashboard', path: '/dashboard'},
-        { name: 'Profile', path: '/profile' },
+        // { name: 'Profile', path: '/profile' },
         { name: 'Manage Habits', path: '/manage-habits' },
         { name: 'Progress', path: '/progress' },
         // { name: 'Settings', path: '/settings'},

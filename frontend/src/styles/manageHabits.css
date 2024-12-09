@@ -4,6 +4,9 @@
     padding: 10px 30px 30px 30px;
     margin: 5px;
     margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
   }
   
   .manage-habits .add-habit {
@@ -20,7 +23,8 @@
     background-color: white;
     margin: 5px;
     padding: 10px 30px 30px 30px;
-  
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   /*Styling for Habit.jsx */
