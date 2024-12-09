@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './styles/index.css'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { UserProvider } from './UserContext.jsx'
-import { HabitProvider } from './HabitContext.jsx'
+import { UserHabitProvider } from './UserHabitContext.jsx'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -16,9 +16,9 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
       <UserProvider>
-        <HabitProvider>
+        <UserHabitProvider>
           <App />
-        </HabitProvider>
+        </UserHabitProvider>
       </UserProvider>
     </ClerkProvider>  
   </StrictMode>,

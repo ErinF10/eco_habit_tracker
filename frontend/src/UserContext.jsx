@@ -24,9 +24,10 @@ export const UserProvider = ({ children }) => {
                     // Fetch user data
                     const userResponse = await api.get(`/users/${user.id}`);
                     setCurrentUser(userResponse.data);
+                    console.log(userResponse.data.id);
 
                     // Initialize streaks to 0 for new users 
-                    await api.post('/userstreaks', userResponse.data.id);
+                    await api.post('/userstreaks', {user_id: userResponse.data.id} );
 
                 } catch (error) {
                     console.error("Error syncing or fetching user:", error);

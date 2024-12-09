@@ -12,6 +12,7 @@ body {
 /* Content for all app pages common styling */
 .main-content {
   margin-left: 320px; 
+  margin-right: 50px;
   margin-top: 100px;
   color: black;
 }
@@ -69,6 +70,7 @@ body {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .analytics .streaks-container {
@@ -82,6 +84,7 @@ body {
   display: flex;
   gap: 5%;
   justify-content: center;
+  
 }
 
 .completion-icon {
@@ -93,6 +96,8 @@ body {
   justify-content: center;
   align-items: center;
   font-size: x-large;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 
