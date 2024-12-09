@@ -3,12 +3,13 @@ from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from database.session import db_dependency
 
 from api.models.user_streaks import UserStreak as UserStreakModel
+from api.schemas.user_streak_schema import CreateUserStreak
 from api.services.get_user_habits import get_user_habits_for_user
 
 router = APIRouter(tags=['userstreaks'])
 
 @router.post('/userstreaks', status_code=status.HTTP_201_CREATED)
-def initialize_new_user_streaks(user_id: int, db: db_dependency):
+def initialize_new_user_streaks(user_streak: CreateUserStreak, db: db_dependency):
     """
     Args:
         user_id: id for the new user.
@@ -18,10 +19,10 @@ def initialize_new_user_streaks(user_id: int, db: db_dependency):
         dict: id and streak values of the user.
     """
     try:
-        existing_user_streak = db.query(UserStreakModel).filter(UserStreakModel.user_id == user_id).first()
+        existing_user_streak = db.query(UserStreakModel).filter(UserStreakModel.user_id == user_streak.user_id).first()
         if existing_user_streak is None:
             new_user_streak = UserStreakModel(
-                user_id = user_id,
+                user_id = user_streak.user_id,
                 current_streak = 0,
                 best_streak = 0
             )

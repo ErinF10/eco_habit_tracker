@@ -39,8 +39,8 @@ async def create_user_habit(newHabit: CreateUserHabit, db: db_dependency):
     return {"new_user_habit": new_user_habit}
 
 
-@router.get("/userhabits/{user_id}", status_code=status.HTTP_200_OK)
-async def get_user_habits(user_id: str, db: db_dependency):
+@router.get("/userhabits/user/{user_id}", status_code=status.HTTP_200_OK)
+async def get_user_habits(user_id: int, db: db_dependency):
     """
         Args:
             user_id: passed in through the get URL
@@ -83,4 +83,40 @@ async def delete_user_habit(user_id: int, habit_id: int, db: db_dependency):
         db.rollback()
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="An error occured while deleting the user habit")
     
-    
+@router.get("/userhabits/{user_id}/{habit_id}", status_code=status.HTTP_200_OK)
+async def get_user_habits(user_id: int, habit_id: int, db: db_dependency):
+    """
+        Args:
+            user_id: passed in through the get URL, id of the user
+            habit_id: id of the habit
+        Raises:
+            404 User not found: if the user_id or habit_id in the get URL does not exist
+                        
+        Returns:
+            The user habit matching the user id and habit id
+    """
+    user_habit = db.query(UserHabitModel).filter(
+        and_(
+            UserHabitModel.user_id == user_id,
+            UserHabitModel.habit_id == habit_id
+        )
+    ).first()    
+    if user_habit is None:
+        raise HTTPException(status_code=404, detail="User habit not found")
+    return user_habit
+
+@router.get("/userhabits/{user_habit_id}", status_code=status.HTTP_200_OK)
+async def get_user_habit_by_id(user_habit_id: int, db: db_dependency):
+    """
+        Args:
+            user_habit_id: id of the user habit
+        Raises:
+            404 User not found: if the user_habit_id in the get URL does not exist
+                        
+        Returns:
+            The user habit matching the user habit id
+    """
+    user_habit = db.query(UserHabitModel).filter(UserHabitModel.id == user_habit_id).first()    
+    if user_habit is None:
+        raise HTTPException(status_code=404, detail="User habit not found")
+    return user_habit

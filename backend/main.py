@@ -3,6 +3,7 @@ from api.routes import user
 from api.routes import habit
 from api.routes import user_habit
 from api.routes import user_streak
+from api.routes import user_habit_schedule
 from api.models.inserts import inserts
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -26,5 +27,6 @@ app.include_router(habit.router)
 app.include_router(user_habit.router)
 app.include_router(user_streak.router)
 app.include_router(inserts.router)
+app.include_router(user_habit_schedule.router)
 
 
